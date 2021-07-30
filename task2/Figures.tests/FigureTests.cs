@@ -1,11 +1,11 @@
 using System;
 using Xunit;
-using task2;
+using Figures;
 using Xunit.Sdk;
 
-namespace task2.tests
+namespace Figures.tests
 {
-    public class UnitTest1
+    public class FigureTests
     {
         [Fact]
         public void TestNeagtiveFigureSides()
@@ -13,6 +13,13 @@ namespace task2.tests
             Figure fig = null;
             Assert.Throws<ArgumentOutOfRangeException>(() => fig = new Circle(-1));
             Assert.Throws<ArgumentOutOfRangeException>(() => fig = new Triangle(-1, -1, -1));
+        }
+
+        [Fact]
+        public void TestCircleHasRadius()
+        {
+            Circle fig = new Circle(1);
+            Assert.Equal(1, fig.radius);
         }
 
         [Fact]

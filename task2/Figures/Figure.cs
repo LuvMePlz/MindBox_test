@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace task2
+namespace Figures
 {
     public abstract class Figure
     {
@@ -22,6 +22,7 @@ namespace task2
         public Triangle(double a, double b, double c) : base(new double[]{a,b,c}){
         }
 
+        
         public override double GetArea()
         {
             var a = Sides[0];
@@ -45,11 +46,13 @@ namespace task2
     public class Circle : Figure{
         public Circle(double radius) : base(new double[]{radius}){
         }
+        public double radius {
+            get {return this.Sides[0];}
+        }
 
         public override double GetArea()
         {
-            var radius = Sides[0];
-            var s = Math.PI * Math.Pow(radius,2);
+            var s = Math.PI * Math.Pow(this.radius,2);
             return s;
         }
     }
